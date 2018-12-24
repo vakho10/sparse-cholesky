@@ -2,7 +2,7 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace unittests
+namespace UnitTests
 {		
 	TEST_CLASS(UnitTests)
 	{
