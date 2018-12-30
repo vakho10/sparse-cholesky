@@ -131,3 +131,78 @@ double* CholeskySolver::backwardSubstitution(JNZ* U, double* b, bool isTranspose
 	}
 	return result;
 }
+
+double* CholeskySolver::decompose(double *inlineMatrix, int n)
+{
+	double *L = (double*)calloc(n * n, sizeof(double));
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j <= i; j++)
+		{
+			double sum = 0;
+
+			if (j == i) // summation for diagnols	
+			{
+				for (int k = 0; k < j; k++)
+					sum += pow(L[j * n + k], 2);
+				L[j * n + j] = sqrt(inlineMatrix[j * n + j] - sum);
+			}
+			else {
+
+				// Evaluating L(i, j) using L(j, j)
+				for (int k = 0; k < j; k++)
+					sum += (L[i * n + k] * L[j * n + k]);
+				L[i * n + j] = (inlineMatrix[i * n + j] - sum) / L[j * n + j];
+			}
+		}
+	}
+	return L;
+}
+
+double* CholeskySolver::forwardSubstitution(double* inline_L, double* b, int n) {
+
+	double *y = (double*)calloc(n, sizeof(double));
+	if (y == NULL)
+		exit(EXIT_FAILURE);
+
+	for (int i = 0; i < n; i++) {
+		y[i] = b[i];
+
+		for (int j = 0; j <= i - 1; j++)
+			y[i] -= inline_L[j + i * n] * y[j];
+
+		y[i] /= inline_L[i + i * n];
+	}
+	return y;
+}
+
+double* CholeskySolver::backwardSubstitution(double* inline_U, double* b, int n, bool isTransposed) {
+
+	double *x = (double*)calloc(n, sizeof(double));
+	if (x == NULL)
+		exit(EXIT_FAILURE);
+
+	// Same codes but with i and j swapped for matrix U
+	if (isTransposed) {
+		for (int i = n - 1; i >= 0; i--) {
+			x[i] = b[i];
+
+			for (int j = i + 1; j < n; j++)
+				x[i] -= inline_U[j + i * n] * x[j];
+
+			x[i] /= inline_U[i + i * n];
+		}
+	}
+	else {
+		for (int i = n - 1; i >= 0; i--) {
+			x[i] = b[i];
+
+			for (int j = i + 1; j < n; j++)
+				x[i] -= inline_U[i + j * n] * x[j];
+
+			x[i] /= inline_U[i + i * n];
+		}
+	}
+	return x;
+}
