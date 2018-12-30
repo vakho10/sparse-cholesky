@@ -164,9 +164,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\CholeskySolverTests.cpp" />
     <ClCompile Include="src\FunctionTests.cpp" />
     <ClCompile Include="src\JNZTests.cpp" />
-    <ClCompile Include="src\UnitTests.cpp" />
+    <ClCompile Include="src\CGSolverTests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\sparse-lib\sparse-lib.vcxproj">

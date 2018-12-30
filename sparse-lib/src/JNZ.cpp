@@ -207,8 +207,11 @@ void JNZ::fromMTXFile(std::string fileName)
 	// მეხსიერების გამოყოფა
 	A = (double **)malloc(sizeof(double *)*n);
 	Ind = (int**)malloc((n + 1) * sizeof(int*));
-	Ind[0] = (int*)malloc((n + 1) * sizeof(int));
-	Ind[0][0] = n;
+	Ind[0] = (int*)calloc((n + 1), sizeof(int)); // ნულებით თავიდან
+	Ind[0][0] = n; // შევინახოთ სტრიქონების რაოდენობა
+
+	/*	შენიშვნა! 
+		მატრიცის ფაილში სტრიქონები შეიძლება მიყოლებით არ იყოს! */
 
 	// შევქმნათ მაქსიმალური სიგრძის ორი ვექტორი, სტრიქონში ინდექსის და მნიშვნელობებისთვის
 	int* _indices = (int *)malloc(sizeof(int)*n);
@@ -228,55 +231,79 @@ void JNZ::fromMTXFile(std::string fileName)
 		// ახალ სტრიქონზე გადასვლამდე შევინახოთ ძველი სტრიქონი
 		if (row != I)
 		{
+			// თუ რაიმე ელემენტები ამოკითხული გვქონდა, მაშინ
+			// ძველები გადააკოპირე დროებითებში: 
+			// [0-დან : რაოდენობამდე] ... [ახლები ისედაც წერია ძველების მერე]
+			if (Ind[0][row] != 0) 
+			{
+				Functions::arrayCopy(A[row - 1], _values, Ind[0][row]);
+				Functions::intArrayCopy(Ind[row], _indices, Ind[0][row]);
+			}
+
+			// შექმენი (ძველი ზომისა და) მთვლელის გათვალისწინებით
 			A[row - 1] = (double*)malloc(counter * sizeof(double));
 			Ind[row] = (int*)malloc(counter * sizeof(int));
+			Ind[0][row] = counter;
 
 			Functions::arrayCopy(_values, A[row - 1], counter);
 			Functions::intArrayCopy(_indices, Ind[row], counter);
-			Ind[0][row] = counter; // რაოდენობის შენახვა
 			row = I;
-			counter = 0;
+			counter = Ind[0][row]; // მთვლელი გახადე რაოდენობის ტოლი
 		}
 
 		// დროებითი სტრიქონების შევსება
-		_indices[counter] = J - 1; // სვეტის გასწორება
+		_indices[counter] = J - 1;
 		_values[counter] = val;
 
 		++counter;
 	}
 
+	// ბოლო სტრიქონის წაკითხვამდე უნდა მოხდეს ბოლო სტრიქონის ძველი ელემენტების 
+	// უკვე არსებობის შემოწმება და არსებული დროებითი ცვლადების შესაბამისი განახლება.
+	if (Ind[0][row] != 0) 
+	{
+		// ძველები გადააკოპირე დროებითებში!
+		Functions::arrayCopy(A[row - 1], _values, Ind[0][row]);
+		Functions::intArrayCopy(Ind[row], _indices, Ind[0][row]);
+	}
+
 	// ბოლო სტრიქონის წაკითხვა
 	{
+		// ერთი სტრიქონის ამოკითხვა
 		fscanf(f, "%d %d %lg\n", &I, &J, &val);
 
+		// ახალ სტრიქონზე გადასვლამდე შევინახოთ ძველი სტრიქონი
 		if (row != I)
 		{
+			// შექმენი (ძველი ზომისა და) მთვლელის გათვალისწინებით
 			A[row - 1] = (double*)malloc(counter * sizeof(double));
 			Ind[row] = (int*)malloc(counter * sizeof(int));
+			Ind[0][row] = counter;
 
 			Functions::arrayCopy(_values, A[row - 1], counter);
 			Functions::intArrayCopy(_indices, Ind[row], counter);
-			Ind[0][row] = counter; // რაოდენობის შენახვა
 			row = I;
-			counter = 0;
+			counter = Ind[0][row]; // მთვლელი გახადე რაოდენობის ტოლი
 		}
 
 		// დროებითი სტრიქონების შევსება
-		_indices[counter] = J - 1; // სვეტის გასწორება
+		_indices[counter] = J - 1;
 		_values[counter] = val;
 
 		++counter;
 	}
 	A[n - 1] = (double*)malloc(counter * sizeof(double));
 	Ind[n] = (int*)malloc(counter * sizeof(int));
+	Ind[0][n] = counter;
+
 	Functions::arrayCopy(_values, A[n - 1], counter);
 	Functions::intArrayCopy(_indices, Ind[n], counter);
-	Ind[0][n] = counter;
 
 	// გასუფთავება
 	delete[] _indices;
 	delete[] _values;
 
+	// ფაილის დახურვა
 	if (f != stdin) {
 		fclose(f);
 	}
@@ -325,17 +352,21 @@ void JNZ::fromDense(double** matrix, const int m, const int n)
 	delete[] _values;
 }
 
-double** JNZ::toDense()
+double** JNZ::toDense(bool makeSymmetric)
 {
 	double** res = (double**)calloc(n, sizeof(double*));
-	for (size_t i = 0; i < n; i++) {
+	
+	for (size_t i = 0; i < n; i++)
 		res[i] = (double*)calloc(n, sizeof(double));
-	}
+	
 	for (size_t i = 1; i <= n; i++)
 	{
 		for (size_t j = 0; j < Ind[0][i]; j++)
 		{
 			res[i - 1][Ind[i][j]] = A[i - 1][j];
+			if (makeSymmetric) {
+				res[Ind[i][j]][i - 1] = A[i - 1][j];
+			}
 		}
 	}
 	return res;

@@ -15,13 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\UnitTests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\FunctionTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\JNZTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CGSolverTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CholeskySolverTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

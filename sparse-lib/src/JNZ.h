@@ -19,7 +19,7 @@ public:
 
 	// (სწრაფი) წაკითხვა *.mtx ფაილიდან
 	// *სიმეტრიული და დადებითად განსაზღვრული უნდა იყოს!
-	// წაიკითხავს დიაგონალსა და მის ზედა მხარეს.
+	// წაიკითხავს, როგორც დიაგონალსა და მის ზედა მხარეს.
 	void fromMTXAsSymetricAndPositive(std::string fileName);
 
 	// წაკითხვა *.mtx ფაილიდან
@@ -30,9 +30,8 @@ public:
 	void fromDense(double** matrix, const int m, const int n);
 
 	// მეჩხერ ფორმატში გადაყვანა
-	double** toDense();
-	
-private:	
+	double** toDense(bool makeSymmetric = false);
+		
 	// TODO move these functions elsewhere!
 	// დამხმარე ფუნქცია მეჩხერი მატრიცის სტრიქონის ვექტორზე სწრაფი გამრავლებისთვის
 	inline double fastMatrixRowByVectorProd(double* v, int* ind, double *y);
