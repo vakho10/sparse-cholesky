@@ -32,5 +32,32 @@ namespace UnitTests
 			}*/
 		}
 
+		TEST_METHOD(test_that_jnz_and_jnzNew_solvers_give_same_results)
+		{
+			JNZ* jnz = new JNZ();
+			jnz->fromMTXAsSymetricAndPositive("resources/LFAT5.mtx");
+			
+			JNZNew* jnzNew = new JNZNew();
+			jnzNew->fromMTXAsSymetricAndPositive("resources/LFAT5.mtx");
+
+			// Generate Ys
+			double* y = (double*)malloc(sizeof(double)*jnz->n);
+			for (size_t i = 0; i < jnz->n; i++)
+				y[i] = i + 1;
+
+			// JNZ CG solver
+			CGSolver* solver = new CGSolver();
+			double* x1 = solver->solve(jnz, y);
+
+			// JNZNew CG solver
+			double* x2 = solver->solve(jnzNew, y);
+
+			// Compare results
+			for (size_t i = 0; i < jnz->n; i++) {
+				Assert::AreEqual(x1[i], x2[i]);
+			}
+
+		}
+
 	};
 }

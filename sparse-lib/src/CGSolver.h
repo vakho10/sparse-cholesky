@@ -2,8 +2,8 @@
 
 #include <stdlib.h>
 
-#include "Functions.h"
 #include "JNZ.h"
+#include "JNZNew.h"
 
 class CGSolver {
 private:
@@ -13,4 +13,7 @@ public:
 	~CGSolver();
 
 	double* solve(JNZ* jnz, double* y);
+	double* solve(JNZNew* jnzNew, double* y);
+
+	inline double fastVectorByVectorProd(double *x, double *y, const int n);
 };

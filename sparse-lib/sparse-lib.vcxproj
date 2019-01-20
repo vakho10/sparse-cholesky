@@ -175,6 +175,7 @@
     <ClCompile Include="src\CholeskySolver.cpp" />
     <ClCompile Include="src\Functions.cpp" />
     <ClCompile Include="src\JNZ.cpp" />
+    <ClCompile Include="src\JNZNew.cpp" />
     <ClCompile Include="src\mmio.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -182,6 +183,7 @@
     <ClInclude Include="src\CholeskySolver.h" />
     <ClInclude Include="src\Functions.h" />
     <ClInclude Include="src\JNZ.h" />
+    <ClInclude Include="src\JNZNew.h" />
     <ClInclude Include="src\json.hpp" />
     <ClInclude Include="src\mmio.h" />
   </ItemGroup>

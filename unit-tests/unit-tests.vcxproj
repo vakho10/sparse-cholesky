@@ -168,6 +168,7 @@
     <ClCompile Include="src\FunctionTests.cpp" />
     <ClCompile Include="src\JNZTests.cpp" />
     <ClCompile Include="src\CGSolverTests.cpp" />
+    <ClCompile Include="src\JNZNewTests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\sparse-lib\sparse-lib.vcxproj">
