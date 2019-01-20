@@ -13,7 +13,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/profiler-web",
+            "baseHref": "https://vakho10.github.io/sparse-cholesky/",
+            "outputPath": "../../docs",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
