@@ -14,8 +14,8 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
 
-            "baseHref": "https://vakho10.github.io/sparse-cholesky/",
-            "outputPath": "../../docs",
+            // "baseHref": "https://vakho10.github.io/sparse-cholesky/",
+            "outputPath": "/build",
 
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -26,6 +26,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []

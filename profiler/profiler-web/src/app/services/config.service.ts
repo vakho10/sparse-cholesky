@@ -8,7 +8,7 @@ export class ConfigService {
 
   constructor(private http: HttpClient) { }
 
-  public getConfig() {
+  getConfig() {
     return this.http.get(this.configUrl);
   }
 }

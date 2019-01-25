@@ -1,0 +1,32 @@
+<div class="container">
+    <h1>Results</h1>
+    <div class="card mt-4" *ngFor="let res of result">
+        <h2 class="card-header text-center">
+            {{res.type | uppercase}}
+        </h2>
+        <div class="card-body" style="padding: 0;">
+            <table class="table card-body">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">N</th>
+                        <th scope="col">NNZ</th>
+                        <th scope="col">JNZ</th>
+                        <th scope="col">JNZ New</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let r of res.results; let i = index">
+                        <th scope="row">{{ i }}</th>
+                        <td>{{r.name}}</td>
+                        <td>{{r.n}}</td>
+                        <td>{{r.nnz}}</td>
+                        <td [ngClass]="{'table-danger': r.jnz > r.jnz_new, 'alert-success': r.jnz < r.jnz_new}">{{r.jnz}}</td>
+                        <td [ngClass]="{'table-danger': r.jnz < r.jnz_new, 'alert-success': r.jnz > r.jnz_new}">{{r.jnz_new}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

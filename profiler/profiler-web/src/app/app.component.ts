@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ConfigService } from './config.service';
+import { ConfigService } from './services/config.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +9,20 @@ import { ConfigService } from './config.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private config: ConfigService) {
-  }
+  result: Result[] = [];
 
-  // Load configuration
+  constructor(private config: ConfigService, private http: HttpClient) { }
+
   ngOnInit(): void {
-    this.config.getConfig().subscribe((data: Configuration) => {
-      console.log(data);
+
+    // Load config
+    this.config.getConfig().subscribe((conf: Configuration) => {
+      // Load results
+      console.log(conf.resultsJsonPath)
+      this.http.get(conf.resultsJsonPath).subscribe((res: Result[]) => {
+        this.result = res;
+        console.log(res);
+      }, (error) => console.log(error))
     });
   }
 }

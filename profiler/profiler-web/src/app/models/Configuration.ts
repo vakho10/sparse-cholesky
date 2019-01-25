@@ -1,3 +1,3 @@
 class Configuration {
-  resutsJsonPath: string;
+  resultsJsonPath: string;
 }
