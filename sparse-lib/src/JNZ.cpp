@@ -127,8 +127,8 @@ void JNZ::fromMTXAsSymetricAndPositive(std::string fileName)
 			A[row] = (double*)malloc(c * sizeof(double));
 			Ind[row + 1] = (int*)malloc(c * sizeof(int));
 
-			Functions::arrayCopy(val, A[row], c);
-			Functions::intArrayCopy(ind, Ind[row + 1], c);
+			arrayCopy(val, A[row], c);
+			intArrayCopy(ind, Ind[row + 1], c);
 			Ind[0][row + 1] = c;
 			row = i;
 			////////cout << c << endl;////////
@@ -164,8 +164,8 @@ void JNZ::fromMTXAsSymetricAndPositive(std::string fileName)
 			--row;
 			A[row] = (double*)malloc(c * sizeof(double));
 			Ind[row + 1] = (int*)malloc(c * sizeof(int));
-			Functions::arrayCopy(val, A[row], c);
-			Functions::intArrayCopy(ind, Ind[row + 1], c);
+			arrayCopy(val, A[row], c);
+			intArrayCopy(ind, Ind[row + 1], c);
 			Ind[0][row + 1] = c;
 			row = i;
 			c = 0;
@@ -176,8 +176,8 @@ void JNZ::fromMTXAsSymetricAndPositive(std::string fileName)
 	}
 	A[n - 1] = (double*)malloc(c * sizeof(double));
 	Ind[n] = (int*)malloc(c * sizeof(int));
-	Functions::arrayCopy(val, A[n - 1], c);
-	Functions::intArrayCopy(ind, Ind[n], c);
+	arrayCopy(val, A[n - 1], c);
+	intArrayCopy(ind, Ind[n], c);
 	Ind[0][n] = c;
 
 	delete[] ind;
@@ -236,8 +236,8 @@ void JNZ::fromMTXFile(std::string fileName)
 			// [0-დან : რაოდენობამდე] ... [ახლები ისედაც წერია ძველების მერე]
 			if (Ind[0][row] != 0)
 			{
-				Functions::arrayCopy(A[row - 1], _values, Ind[0][row]);
-				Functions::intArrayCopy(Ind[row], _indices, Ind[0][row]);
+				arrayCopy(A[row - 1], _values, Ind[0][row]);
+				intArrayCopy(Ind[row], _indices, Ind[0][row]);
 			}
 
 			// შექმენი (ძველი ზომისა და) მთვლელის გათვალისწინებით
@@ -245,8 +245,8 @@ void JNZ::fromMTXFile(std::string fileName)
 			Ind[row] = (int*)malloc(counter * sizeof(int));
 			Ind[0][row] = counter;
 
-			Functions::arrayCopy(_values, A[row - 1], counter);
-			Functions::intArrayCopy(_indices, Ind[row], counter);
+			arrayCopy(_values, A[row - 1], counter);
+			intArrayCopy(_indices, Ind[row], counter);
 			row = I;
 			counter = Ind[0][row]; // მთვლელი გახადე რაოდენობის ტოლი
 		}
@@ -263,8 +263,8 @@ void JNZ::fromMTXFile(std::string fileName)
 	if (Ind[0][row] != 0)
 	{
 		// ძველები გადააკოპირე დროებითებში!
-		Functions::arrayCopy(A[row - 1], _values, Ind[0][row]);
-		Functions::intArrayCopy(Ind[row], _indices, Ind[0][row]);
+		arrayCopy(A[row - 1], _values, Ind[0][row]);
+		intArrayCopy(Ind[row], _indices, Ind[0][row]);
 	}
 
 	// ბოლო სტრიქონის წაკითხვა
@@ -280,8 +280,8 @@ void JNZ::fromMTXFile(std::string fileName)
 			Ind[row] = (int*)malloc(counter * sizeof(int));
 			Ind[0][row] = counter;
 
-			Functions::arrayCopy(_values, A[row - 1], counter);
-			Functions::intArrayCopy(_indices, Ind[row], counter);
+			arrayCopy(_values, A[row - 1], counter);
+			intArrayCopy(_indices, Ind[row], counter);
 			row = I;
 			counter = Ind[0][row]; // მთვლელი გახადე რაოდენობის ტოლი
 		}
@@ -296,8 +296,8 @@ void JNZ::fromMTXFile(std::string fileName)
 	Ind[n] = (int*)malloc(counter * sizeof(int));
 	Ind[0][n] = counter;
 
-	Functions::arrayCopy(_values, A[n - 1], counter);
-	Functions::intArrayCopy(_indices, Ind[n], counter);
+	arrayCopy(_values, A[n - 1], counter);
+	intArrayCopy(_indices, Ind[n], counter);
 
 	// გასუფთავება
 	delete[] _indices;
@@ -340,8 +340,8 @@ void JNZ::fromDense(double** matrix, const int m, const int n)
 				A[i] = (double*)malloc(counter * sizeof(double));
 				Ind[i + 1] = (int*)malloc(counter * sizeof(int));
 
-				Functions::arrayCopy(_values, A[i], counter);
-				Functions::intArrayCopy(_indices, Ind[i + 1], counter);
+				arrayCopy(_values, A[i], counter);
+				intArrayCopy(_indices, Ind[i + 1], counter);
 				Ind[0][i + 1] = counter; // რაოდენობის შენახვა
 			}
 		}
@@ -406,6 +406,30 @@ void JNZ::fastMatrixByVector(double** m, int** index, double* x, double* res)
 			res[i] += p[j] * x[q[j]];
 			res[q[j]] += p[j] * x[i];
 		}
+	}
+}
+
+void JNZ::arrayCopy(double* x, double* y, const int n)
+{
+	int i, n5;
+	if (n <= 0) return;
+	n5 = n % 5;
+	for (i = 0; i < n5; i++)  y[i] = x[i];
+	for (; i < n; i += 5)
+	{
+		y[i] = x[i]; y[i + 1] = x[i + 1]; y[i + 2] = x[i + 2];  y[i + 3] = x[i + 3]; y[i + 4] = x[i + 4];
+	}
+}
+
+void JNZ::intArrayCopy(int* x, int* y, const int n)
+{
+	int i, n5;
+	if (n <= 0) return;
+	n5 = n % 5;
+	for (i = 0; i < n5; i++)  y[i] = x[i];
+	for (; i < n; i += 5)
+	{
+		y[i] = x[i]; y[i + 1] = x[i + 1]; y[i + 2] = x[i + 2];  y[i + 3] = x[i + 3]; y[i + 4] = x[i + 4];
 	}
 }
 

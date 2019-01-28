@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ConfigService } from './services/config.service';
-import { PrettySizeModule } from 'angular-pretty-size';
+import { PrettySizeModule, PrettySizeOptions } from 'angular-pretty-size';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,14 @@ import { PrettySizeModule } from 'angular-pretty-size';
     NgbModule,
     BrowserModule,
     HttpClientModule,
-    PrettySizeModule
+    PrettySizeModule.forRoot({
+      provide: PrettySizeOptions,
+      useValue: {
+          units: [' Byte', ' KiB', ' MiB', ' GiB', ' TiB', ' PiB', ' EiB', ' ZiB', ' YiB'],
+          divisor: 1024,
+          scale: 2, // 0, 1 or 2
+      },
+  }),
   ],
   providers: [ConfigService],
   bootstrap: [AppComponent]

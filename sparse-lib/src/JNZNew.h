@@ -2,8 +2,6 @@
 
 #include <string>
 
-#include "Functions.h"
-
 class JNZNew
 {
 public:
@@ -41,6 +39,8 @@ public:
 			y[i] = (T)x[i]; y[i + 1] = (T)x[i + 1]; y[i + 2] = (T)x[i + 2]; y[i + 3] = (T)x[i + 3]; y[i + 4] = (T)x[i + 4];
 		}
 	}
+
+	void arrayCopy(double* x, double* y, const int n);
 
 	// აბრუნებს გამოყენებული ბაიტების რაოდენობას
 	int getSize();

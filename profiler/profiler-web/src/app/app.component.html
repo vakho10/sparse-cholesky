@@ -28,12 +28,12 @@
                         <td [ngClass]="{'table-danger': r.jnz.solve > r.jnz_new.solve, 'alert-success': r.jnz.solve < r.jnz_new.solve}">{{r.jnz.solve}}</td>
                         <td [ngClass]="{'table-danger': r.jnz.solve < r.jnz_new.solve, 'alert-success': r.jnz.solve > r.jnz_new.solve}">{{r.jnz_new.solve}}</td>
                         <td [ngClass]="{'table-danger': r.jnz.size > r.jnz_new.size, 'alert-success': r.jnz.size < r.jnz_new.size}">
-                          {{r.jnz.size | nxtPrettySize}}
+                          {{r.jnz.size }} : <b>{{r.jnz.size | nxtPrettySize}}</b>
                         </td>
                         <td [ngClass]="{'table-danger': r.jnz.size < r.jnz_new.size, 'alert-success': r.jnz.size > r.jnz_new.size}">
-                          {{r.jnz_new.size | nxtPrettySize}}
+                          {{r.jnz_new.size }} : <b>{{r.jnz_new.size | nxtPrettySize}}</b>
                         </td>
-                        <td>{{r.jnz_new.size - r.jnz.size | nxtPrettySize }}</td>
+                        <td>{{r.jnz_new.size - r.jnz.size}} : <b>{{r.jnz_new.size - r.jnz.size | nxtPrettySize }}</b></td>
                     </tr>
                 </tbody>
             </table>

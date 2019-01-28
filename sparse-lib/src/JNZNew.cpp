@@ -127,7 +127,7 @@ void JNZNew::fromMTXAsSymetricAndPositive(std::string fileName)
 		{
 			--row;
 			A[row] = (double*)malloc(c * sizeof(double));
-			Functions::arrayCopy(val, A[row], c);
+			arrayCopy(val, A[row], c);
 
 			if (ind[c - 1] <= UCHAR_MAX)
 				((char*)Ind[1])[row] = 'c';
@@ -184,7 +184,7 @@ void JNZNew::fromMTXAsSymetricAndPositive(std::string fileName)
 		{
 			--row;
 			A[row] = (double*)malloc(c * sizeof(double));
-			Functions::arrayCopy(val, A[row], c);
+			arrayCopy(val, A[row], c);
 
 			if (ind[c - 1] <= UCHAR_MAX)
 				((char*)Ind[1])[row] = 'c';
@@ -219,7 +219,7 @@ void JNZNew::fromMTXAsSymetricAndPositive(std::string fileName)
 	}
 
 	A[n - 1] = (double*)malloc(c * sizeof(double));
-	Functions::arrayCopy(val, A[n - 1], c);
+	arrayCopy(val, A[n - 1], c);
 
 	if (ind[c - 1] <= UCHAR_MAX)
 		((char*)Ind[1])[n - 1] = 'c';
@@ -367,6 +367,18 @@ void JNZNew::fastMatrixByVector(double** m, void** index, double* x, double* res
 				res[q[j]] += p[j] * x[i];
 			}
 		}
+	}
+}
+
+void JNZNew::arrayCopy(double* x, double* y, const int n)
+{
+	int i, n5;
+	if (n <= 0) return;
+	n5 = n % 5;
+	for (i = 0; i < n5; i++)  y[i] = x[i];
+	for (; i < n; i += 5)
+	{
+		y[i] = x[i]; y[i + 1] = x[i + 1]; y[i + 2] = x[i + 2];  y[i + 3] = x[i + 3]; y[i + 4] = x[i + 4];
 	}
 }
 

@@ -4,7 +4,6 @@
 #include <exception>
 
 #include "mmio.h"
-#include "Functions.h"
 
 class JNZ
 {
@@ -38,6 +37,10 @@ public:
 
 	// დამხმარე ფუნქცია სიმეტრიული მატრიცის და მასივის სწრაფი გამრავლებისთვის
 	void fastMatrixByVector(double** m, int** index, double* x, double* res);
+
+	void arrayCopy(double* x, double* y, const int n);
+
+	void intArrayCopy(int* x, int* y, const int n);
 
 	// აბრუნებს გამოყენებული ბაიტების რაოდენობას
 	int getSize();
