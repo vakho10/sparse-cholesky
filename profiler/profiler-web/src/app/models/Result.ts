@@ -1,7 +1,7 @@
 class Result {
     type: string;
     results: [{
-        jnz: number,
+        jnz: { size: number, solve: number },
         jnz_new: number,
         n: number,
         name: string,

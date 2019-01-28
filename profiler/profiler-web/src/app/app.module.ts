@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ConfigService } from './services/config.service';
+import { PrettySizeModule } from 'angular-pretty-size';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { ConfigService } from './services/config.service';
   imports: [
     NgbModule,
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    PrettySizeModule
   ],
   providers: [ConfigService],
   bootstrap: [AppComponent]

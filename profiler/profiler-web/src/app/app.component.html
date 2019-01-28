@@ -14,6 +14,9 @@
                         <th scope="col">NNZ</th>
                         <th scope="col">JNZ</th>
                         <th scope="col">JNZ New</th>
+                        <th scope="col">JNZ (size)</th>
+                        <th scope="col">JNZ New (size)</th>
+                        <th scope="col">Size difference</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,8 +25,15 @@
                         <td>{{r.name}}</td>
                         <td>{{r.n}}</td>
                         <td>{{r.nnz}}</td>
-                        <td [ngClass]="{'table-danger': r.jnz > r.jnz_new, 'alert-success': r.jnz < r.jnz_new}">{{r.jnz}}</td>
-                        <td [ngClass]="{'table-danger': r.jnz < r.jnz_new, 'alert-success': r.jnz > r.jnz_new}">{{r.jnz_new}}</td>
+                        <td [ngClass]="{'table-danger': r.jnz.solve > r.jnz_new.solve, 'alert-success': r.jnz.solve < r.jnz_new.solve}">{{r.jnz.solve}}</td>
+                        <td [ngClass]="{'table-danger': r.jnz.solve < r.jnz_new.solve, 'alert-success': r.jnz.solve > r.jnz_new.solve}">{{r.jnz_new.solve}}</td>
+                        <td [ngClass]="{'table-danger': r.jnz.size > r.jnz_new.size, 'alert-success': r.jnz.size < r.jnz_new.size}">
+                          {{r.jnz.size | nxtPrettySize}}
+                        </td>
+                        <td [ngClass]="{'table-danger': r.jnz.size < r.jnz_new.size, 'alert-success': r.jnz.size > r.jnz_new.size}">
+                          {{r.jnz_new.size | nxtPrettySize}}
+                        </td>
+                        <td>{{r.jnz_new.size - r.jnz.size | nxtPrettySize }}</td>
                     </tr>
                 </tbody>
             </table>

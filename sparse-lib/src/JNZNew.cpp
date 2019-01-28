@@ -75,7 +75,7 @@ void JNZNew::fromMTXAsSymetricAndPositive(std::string fileName)
 	data += pos;
 
 	pos = 0;
-	while (data[pos] != '\n') 
+	while (data[pos] != '\n')
 		++pos;
 	data[pos] = '\0';
 	nnz = (int)atoi(data);
@@ -268,7 +268,7 @@ double ** JNZNew::toDense(bool makeSymmetric)
 		case('c'):
 		{
 			unsigned char* rowInd = (unsigned char*)Ind[i + 2];
-			for (size_t j = 0; j < indRowZero[i+1]; j++)
+			for (size_t j = 0; j < indRowZero[i + 1]; j++)
 			{
 				res[i][rowInd[j]] = A[i][j];
 				if (makeSymmetric) {
@@ -368,4 +368,39 @@ void JNZNew::fastMatrixByVector(double** m, void** index, double* x, double* res
 			}
 		}
 	}
+}
+
+int JNZNew::getSize()
+{
+	int size(0);
+
+	// Add sizes of n, nnz variables
+	size += 2 * sizeof(int);
+
+	// Ind array's first row (same)
+	size += (n + 1) * sizeof(int);
+
+	// Ind second row (chars)
+	size += n * sizeof(char);
+
+	// Ind's next rows are determined by character in the second row's i'th position
+	for (size_t i = 0; i < n; i++) 
+	{
+		switch (((char*)Ind[1])[i])
+		{
+		case('c'):
+			size += ((int*)Ind[0])[i + 1] * sizeof(unsigned char);
+			break;
+		case('s'):
+			size += ((int*)Ind[0])[i + 1] * sizeof(unsigned short);
+			break;
+		case('i'):
+			size += ((int*)Ind[0])[i + 1] * sizeof(unsigned int);
+		}
+	}
+
+	// Values array
+	size += nnz * sizeof(double);
+
+	return size;
 }

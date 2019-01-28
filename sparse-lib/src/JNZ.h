@@ -38,4 +38,7 @@ public:
 
 	// დამხმარე ფუნქცია სიმეტრიული მატრიცის და მასივის სწრაფი გამრავლებისთვის
 	void fastMatrixByVector(double** m, int** index, double* x, double* res);
+
+	// აბრუნებს გამოყენებული ბაიტების რაოდენობას
+	int getSize();
 };

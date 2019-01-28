@@ -210,10 +210,10 @@ void JNZ::fromMTXFile(std::string fileName)
 	Ind[0] = (int*)calloc((n + 1), sizeof(int)); // ნულებით თავიდან
 	Ind[0][0] = n; // შევინახოთ სტრიქონების რაოდენობა
 
-	/*	შენიშვნა! 
+	/*	შენიშვნა!
 		მატრიცის ფაილში სტრიქონები შეიძლება მიყოლებით არ იყოს! */
 
-	// შევქმნათ მაქსიმალური სიგრძის ორი ვექტორი, სტრიქონში ინდექსის და მნიშვნელობებისთვის
+		// შევქმნათ მაქსიმალური სიგრძის ორი ვექტორი, სტრიქონში ინდექსის და მნიშვნელობებისთვის
 	int* _indices = (int *)malloc(sizeof(int)*n);
 	double*	_values = (double *)malloc(sizeof(double)*n);
 
@@ -234,7 +234,7 @@ void JNZ::fromMTXFile(std::string fileName)
 			// თუ რაიმე ელემენტები ამოკითხული გვქონდა, მაშინ
 			// ძველები გადააკოპირე დროებითებში: 
 			// [0-დან : რაოდენობამდე] ... [ახლები ისედაც წერია ძველების მერე]
-			if (Ind[0][row] != 0) 
+			if (Ind[0][row] != 0)
 			{
 				Functions::arrayCopy(A[row - 1], _values, Ind[0][row]);
 				Functions::intArrayCopy(Ind[row], _indices, Ind[0][row]);
@@ -260,7 +260,7 @@ void JNZ::fromMTXFile(std::string fileName)
 
 	// ბოლო სტრიქონის წაკითხვამდე უნდა მოხდეს ბოლო სტრიქონის ძველი ელემენტების 
 	// უკვე არსებობის შემოწმება და არსებული დროებითი ცვლადების შესაბამისი განახლება.
-	if (Ind[0][row] != 0) 
+	if (Ind[0][row] != 0)
 	{
 		// ძველები გადააკოპირე დროებითებში!
 		Functions::arrayCopy(A[row - 1], _values, Ind[0][row]);
@@ -325,7 +325,7 @@ void JNZ::fromDense(double** matrix, const int m, const int n)
 	double*	_values = (double *)malloc(sizeof(double)*n);
 
 	for (size_t i = 0, counter = 0; i < m; i++, counter = 0)
-	{		
+	{
 		for (size_t j = 0; j < n; j++)
 		{
 			// თუ არანულოვანია, მაშინ ვინახავთ
@@ -355,10 +355,10 @@ void JNZ::fromDense(double** matrix, const int m, const int n)
 double** JNZ::toDense(bool makeSymmetric)
 {
 	double** res = (double**)calloc(n, sizeof(double*));
-	
+
 	for (size_t i = 0; i < n; i++)
 		res[i] = (double*)calloc(n, sizeof(double));
-	
+
 	for (size_t i = 1; i <= n; i++)
 	{
 		for (size_t j = 0; j < Ind[0][i]; j++)
@@ -407,4 +407,22 @@ void JNZ::fastMatrixByVector(double** m, int** index, double* x, double* res)
 			res[q[j]] += p[j] * x[i];
 		}
 	}
+}
+
+int JNZ::getSize()
+{
+	int size(0);
+
+	// Add sizes of n, nnz variables
+	size += 2 * sizeof(int);
+
+	// Ind array's first row
+	size += (n + 1) * sizeof(int);
+	
+	// Ind additional rows
+	size += nnz * sizeof(int);
+
+	// Values array
+	size += nnz * sizeof(double);
+	return size;
 }

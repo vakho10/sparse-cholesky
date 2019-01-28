@@ -18,11 +18,15 @@ export class AppComponent implements OnInit {
     // Load config
     this.config.getConfig().subscribe((conf: Configuration) => {
       // Load results
-      console.log(conf.resultsJsonPath)
+      console.log(conf.resultsJsonPath);
       this.http.get(conf.resultsJsonPath).subscribe((res: Result[]) => {
+        // Order results by size ascending
+        res.forEach((r: Result) => {
+          r.results.sort((a, b) => a.n - b.n);
+        });
         this.result = res;
         console.log(res);
-      }, (error) => console.log(error))
+      }, (error) => console.log(error));
     });
   }
 }
