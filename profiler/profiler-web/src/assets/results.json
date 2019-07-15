@@ -3,199 +3,8 @@
         "results": [
             {
                 "jnz": {
-                    "size": 14948,
-                    "solve": 21.355108
-                },
-                "jnz_new": {
-                    "size": 13019,
-                    "solve": 23.983404
-                },
-                "n": 494,
-                "name": "494_bus.mtx",
-                "nnz": 1080
-            },
-            {
-                "jnz": {
-                    "size": 2892,
-                    "solve": 0.465573
-                },
-                "jnz_new": {
-                    "size": 2268,
-                    "solve": 0.489521
-                },
-                "n": 48,
-                "name": "bcsstk01.mtx",
-                "nnz": 224
-            },
-            {
-                "jnz": {
-                    "size": 4972,
-                    "solve": 2.560809
-                },
-                "jnz_new": {
-                    "size": 3956,
-                    "solve": 2.746789
-                },
-                "n": 112,
-                "name": "bcsstk03.mtx",
-                "nnz": 376
-            },
-            {
-                "jnz": {
-                    "size": 5568,
-                    "solve": 1.975499
-                },
-                "jnz_new": {
-                    "size": 4455,
-                    "solve": 1.948442
-                },
-                "n": 138,
-                "name": "bcsstk22.mtx",
-                "nnz": 417
-            },
-            {
-                "jnz": {
-                    "size": 1068,
-                    "solve": 0.025813
-                },
-                "jnz_new": {
-                    "size": 936,
-                    "solve": 0.032034
-                },
-                "n": 66,
-                "name": "bcsstm02.mtx",
-                "nnz": 66
-            },
-            {
-                "jnz": {
-                    "size": 2460,
-                    "solve": 0.070598
-                },
-                "jnz_new": {
-                    "size": 2154,
-                    "solve": 0.069043
-                },
-                "n": 153,
-                "name": "bcsstm05.mtx",
-                "nnz": 153
-            },
-            {
-                "jnz": {
-                    "size": 6732,
-                    "solve": 1.231577
-                },
-                "jnz_new": {
-                    "size": 6056,
-                    "solve": 1.456433
-                },
-                "n": 420,
-                "name": "bcsstm06.mtx",
-                "nnz": 420
-            },
-            {
-                "jnz": {
-                    "size": 17196,
-                    "solve": 4.304299
-                },
-                "jnz_new": {
-                    "size": 15866,
-                    "solve": 4.609705
-                },
-                "n": 1074,
-                "name": "bcsstm08.mtx",
-                "nnz": 1074
-            },
-            {
-                "jnz": {
-                    "size": 17340,
-                    "solve": 0.085215
-                },
-                "jnz_new": {
-                    "size": 16001,
-                    "solve": 0.096411
-                },
-                "n": 1083,
-                "name": "bcsstm09.mtx",
-                "nnz": 1083
-            },
-            {
-                "jnz": {
-                    "size": 23580,
-                    "solve": 0.99708
-                },
-                "jnz_new": {
-                    "size": 21851,
-                    "solve": 1.064879
-                },
-                "n": 1473,
-                "name": "bcsstm11.mtx",
-                "nnz": 1473
-            },
-            {
-                "jnz": {
-                    "size": 13084,
-                    "solve": 10.149002
-                },
-                "jnz_new": {
-                    "size": 12011,
-                    "solve": 9.848261
-                },
-                "n": 817,
-                "name": "bcsstm19.mtx",
-                "nnz": 817
-            },
-            {
-                "jnz": {
-                    "size": 7772,
-                    "solve": 3.522434
-                },
-                "jnz_new": {
-                    "size": 7031,
-                    "solve": 3.512482
-                },
-                "n": 485,
-                "name": "bcsstm20.mtx",
-                "nnz": 485
-            },
-            {
-                "jnz": {
-                    "size": 2220,
-                    "solve": 0.185358
-                },
-                "jnz_new": {
-                    "size": 1944,
-                    "solve": 0.186602
-                },
-                "n": 138,
-                "name": "bcsstm22.mtx",
-                "nnz": 138
-            },
-            {
-                "jnz": {
-                    "size": 30764,
-                    "solve": 100.160479
-                },
-                "jnz_new": {
-                    "size": 28586,
-                    "solve": 115.662175
-                },
-                "n": 1922,
-                "name": "bcsstm26.mtx",
-                "nnz": 1922
-            }
-        ],
-        "type": "small"
-    },
-    {
-        "results": [
-            {
-                "jnz": {
                     "size": 35716,
-                    "solve": 104.722599
-                },
-                "jnz_new": {
-                    "size": 31236,
-                    "solve": 101.776145
+                    "solve": 124.247507
                 },
                 "n": 1138,
                 "name": "1138_bus.mtx",
@@ -203,51 +12,8 @@
             },
             {
                 "jnz": {
-                    "size": 14948,
-                    "solve": 22.536302
-                },
-                "jnz_new": {
-                    "size": 13019,
-                    "solve": 22.977617
-                },
-                "n": 494,
-                "name": "494_bus.mtx",
-                "nnz": 1080
-            },
-            {
-                "jnz": {
-                    "size": 21476,
-                    "solve": 14.525765
-                },
-                "jnz_new": {
-                    "size": 18700,
-                    "solve": 16.03849
-                },
-                "n": 662,
-                "name": "662_bus.mtx",
-                "nnz": 1568
-            },
-            {
-                "jnz": {
-                    "size": 26356,
-                    "solve": 14.313349
-                },
-                "jnz_new": {
-                    "size": 22501,
-                    "solve": 16.449948
-                },
-                "n": 685,
-                "name": "685_bus.mtx",
-                "nnz": 1967
-            },
-            {
-                "jnz": {
                     "size": 26808,
-                    "solve": 1.246816
-                },
-                "jnz_new": {
-                    "size": 20241,
-                    "solve": 1.244017
+                    "solve": 1.203247
                 },
                 "n": 66,
                 "name": "bcsstk02.mtx",
@@ -256,11 +22,7 @@
             {
                 "jnz": {
                     "size": 23220,
-                    "solve": 8.504722
-                },
-                "jnz_new": {
-                    "size": 17682,
-                    "solve": 8.500368
+                    "solve": 10.445723
                 },
                 "n": 132,
                 "name": "bcsstk04.mtx",
@@ -268,25 +30,8 @@
             },
             {
                 "jnz": {
-                    "size": 16080,
-                    "solve": 2.82423
-                },
-                "jnz_new": {
-                    "size": 12369,
-                    "solve": 2.897005
-                },
-                "n": 153,
-                "name": "bcsstk05.mtx",
-                "nnz": 1288
-            },
-            {
-                "jnz": {
                     "size": 51372,
-                    "solve": 138.899169
-                },
-                "jnz_new": {
-                    "size": 41298,
-                    "solve": 146.376645
+                    "solve": 143.096856
                 },
                 "n": 420,
                 "name": "bcsstk06.mtx",
@@ -295,11 +40,7 @@
             {
                 "jnz": {
                     "size": 51372,
-                    "solve": 139.994838
-                },
-                "jnz_new": {
-                    "size": 41298,
-                    "solve": 144.44251
+                    "solve": 144.92083
                 },
                 "n": 420,
                 "name": "bcsstk07.mtx",
@@ -307,12 +48,62 @@
             },
             {
                 "jnz": {
-                    "size": 49300,
-                    "solve": 10794.00757
+                    "size": 88512,
+                    "solve": 562.962463
                 },
-                "jnz_new": {
-                    "size": 41841,
-                    "solve": 11088.799804
+                "n": 1074,
+                "name": "bcsstk08.mtx",
+                "nnz": 7017
+            },
+            {
+                "jnz": {
+                    "size": 121464,
+                    "solve": 22.954074
+                },
+                "n": 1083,
+                "name": "bcsstk09.mtx",
+                "nnz": 9760
+            },
+            {
+                "jnz": {
+                    "size": 143292,
+                    "solve": 423.037389
+                },
+                "n": 1086,
+                "name": "bcsstk10.mtx",
+                "nnz": 11578
+            },
+            {
+                "jnz": {
+                    "size": 220188,
+                    "solve": 3660.94212
+                },
+                "n": 1473,
+                "name": "bcsstk11.mtx",
+                "nnz": 17857
+            },
+            {
+                "jnz": {
+                    "size": 220188,
+                    "solve": 3677.404078
+                },
+                "n": 1473,
+                "name": "bcsstk12.mtx",
+                "nnz": 17857
+            },
+            {
+                "jnz": {
+                    "size": 398796,
+                    "solve": 3999.937556
+                },
+                "n": 1806,
+                "name": "bcsstk14.mtx",
+                "nnz": 32630
+            },
+            {
+                "jnz": {
+                    "size": 49300,
+                    "solve": 9736.352343
                 },
                 "n": 817,
                 "name": "bcsstk19.mtx",
@@ -321,42 +112,52 @@
             {
                 "jnz": {
                     "size": 23672,
-                    "solve": 1229.950955
-                },
-                "jnz_new": {
-                    "size": 19641,
-                    "solve": 1354.349239
+                    "solve": 1225.83548
                 },
                 "n": 485,
                 "name": "bcsstk20.mtx",
                 "nnz": 1810
-            }
-        ],
-        "type": "medium"
-    },
-    {
-        "results": [
+            },
             {
                 "jnz": {
-                    "size": 4061116,
-                    "solve": 12075.663916
+                    "size": 195612,
+                    "solve": 2110.679615
                 },
-                "jnz_new": {
-                    "size": 3641532,
-                    "solve": 12554.974047
+                "n": 3600,
+                "name": "bcsstk21.mtx",
+                "nnz": 15100
+            },
+            {
+                "jnz": {
+                    "size": 302420,
+                    "solve": 269522.541634
                 },
-                "n": 80800,
-                "name": "apache1.mtx",
-                "nnz": 311492
+                "n": 3134,
+                "name": "bcsstk23.mtx",
+                "nnz": 24156
+            },
+            {
+                "jnz": {
+                    "size": 201248,
+                    "solve": 5716.31714
+                },
+                "n": 1922,
+                "name": "bcsstk26.mtx",
+                "nnz": 16129
+            },
+            {
+                "jnz": {
+                    "size": 349008,
+                    "solve": 262.019853
+                },
+                "n": 1224,
+                "name": "bcsstk27.mtx",
+                "nnz": 28675
             },
             {
                 "jnz": {
                     "size": 134400,
-                    "solve": 82.31101
-                },
-                "jnz_new": {
-                    "size": 109321,
-                    "solve": 89.090904
+                    "solve": 90.282298
                 },
                 "n": 588,
                 "name": "bcsstk34.mtx",
@@ -364,12 +165,71 @@
             },
             {
                 "jnz": {
-                    "size": 748364,
-                    "solve": 437.987305
+                    "size": 47724,
+                    "solve": 11.55117
                 },
-                "jnz_new": {
-                    "size": 701336,
-                    "solve": 481.528524
+                "n": 420,
+                "name": "bcsstm07.mtx",
+                "nnz": 3836
+            },
+            {
+                "jnz": {
+                    "size": 132696,
+                    "solve": 354.387588
+                },
+                "n": 1473,
+                "name": "bcsstm12.mtx",
+                "nnz": 10566
+            },
+            {
+                "jnz": {
+                    "size": 57612,
+                    "solve": 0.355557
+                },
+                "n": 3600,
+                "name": "bcsstm21.mtx",
+                "nnz": 3600
+            },
+            {
+                "jnz": {
+                    "size": 50156,
+                    "solve": 383.818952
+                },
+                "n": 3134,
+                "name": "bcsstm23.mtx",
+                "nnz": 3134
+            },
+            {
+                "jnz": {
+                    "size": 57004,
+                    "solve": 2041.016179
+                },
+                "n": 3562,
+                "name": "bcsstm24.mtx",
+                "nnz": 3562
+            },
+            {
+                "jnz": {
+                    "size": 247036,
+                    "solve": 27125.284524
+                },
+                "n": 15439,
+                "name": "bcsstm25.mtx",
+                "nnz": 15439
+            },
+            {
+                "jnz": {
+                    "size": 30764,
+                    "solve": 102.885027
+                },
+                "n": 1922,
+                "name": "bcsstm26.mtx",
+                "nnz": 1922
+            },
+            {
+                "jnz": {
+                    "size": 748364,
+                    "solve": 438.503389
                 },
                 "n": 46772,
                 "name": "bcsstm39.mtx",
@@ -377,77 +237,17 @@
             },
             {
                 "jnz": {
-                    "size": 4731228,
-                    "solve": 613.001533
+                    "size": 69588,
+                    "solve": 7.871288
                 },
-                "jnz_new": {
-                    "size": 3960327,
-                    "solve": 554.180675
-                },
-                "n": 10581,
-                "name": "bundle1.mtx",
-                "nnz": 390741
-            },
-            {
-                "jnz": {
-                    "size": 680796,
-                    "solve": 46.445376
-                },
-                "jnz_new": {
-                    "size": 575257,
-                    "solve": 49.725539
-                },
-                "n": 4875,
-                "name": "crystm01.mtx",
-                "nnz": 55107
-            },
-            {
-                "jnz": {
-                    "size": 2077092,
-                    "solve": 157.715238
-                },
-                "jnz_new": {
-                    "size": 1754187,
-                    "solve": 166.076277
-                },
-                "n": 13965,
-                "name": "crystm02.mtx",
-                "nnz": 168435
-            },
-            {
-                "jnz": {
-                    "size": 3749592,
-                    "solve": 319.315231
-                },
-                "jnz_new": {
-                    "size": 3165822,
-                    "solve": 311.934788
-                },
-                "n": 24696,
-                "name": "crystm03.mtx",
-                "nnz": 304233
-            },
-            {
-                "jnz": {
-                    "size": 2599820,
-                    "solve": 32055.96926
-                },
-                "jnz_new": {
-                    "size": 2249810,
-                    "solve": 34523.878908
-                },
-                "n": 50000,
-                "name": "cvxbqp1.mtx",
-                "nnz": 199984
+                "n": 2541,
+                "name": "Chem97ZtZ.mtx",
+                "nnz": 4951
             },
             {
                 "jnz": {
                     "size": 353152,
-                    "solve": 13745.442077
-                },
-                "jnz_new": {
-                    "size": 296445,
-                    "solve": 14406.925754
+                    "solve": 15166.726972
                 },
                 "n": 2410,
                 "name": "ex10.mtx",
@@ -456,11 +256,7 @@
             {
                 "jnz": {
                     "size": 369340,
-                    "solve": 14164.224868
-                },
-                "jnz_new": {
-                    "size": 310223,
-                    "solve": 14566.549625
+                    "solve": 15474.103531
                 },
                 "n": 2548,
                 "name": "ex10hs.mtx",
@@ -468,38 +264,8 @@
             },
             {
                 "jnz": {
-                    "size": 479460,
-                    "solve": 167405.686402
-                },
-                "jnz_new": {
-                    "size": 400980,
-                    "solve": 170732.704897
-                },
-                "n": 2568,
-                "name": "ex13.mtx",
-                "nnz": 39098
-            },
-            {
-                "jnz": {
-                    "size": 660708,
-                    "solve": 125719.821235
-                },
-                "jnz_new": {
-                    "size": 560600,
-                    "solve": 130351.091469
-                },
-                "n": 6867,
-                "name": "ex15.mtx",
-                "nnz": 52769
-            },
-            {
-                "jnz": {
                     "size": 334332,
-                    "solve": 3209.97173
-                },
-                "jnz_new": {
-                    "size": 279693,
-                    "solve": 3325.81211
+                    "solve": 3591.356239
                 },
                 "n": 1821,
                 "name": "ex3.mtx",
@@ -508,11 +274,7 @@
             {
                 "jnz": {
                     "size": 150476,
-                    "solve": 9948.353077
-                },
-                "jnz_new": {
-                    "size": 126995,
-                    "solve": 10341.633518
+                    "solve": 12146.203913
                 },
                 "n": 1733,
                 "name": "ex33.mtx",
@@ -520,18 +282,149 @@
             },
             {
                 "jnz": {
-                    "size": 630468,
-                    "solve": 132537.16812
+                    "size": 607636,
+                    "solve": 13.137346
                 },
-                "jnz_new": {
-                    "size": 528355,
-                    "solve": 138785.964066
+                "n": 9604,
+                "name": "fv1.mtx",
+                "nnz": 47434
+            },
+            {
+                "jnz": {
+                    "size": 620172,
+                    "solve": 13.446142
                 },
-                "n": 3363,
-                "name": "ex9.mtx",
-                "nnz": 51417
+                "n": 9801,
+                "name": "fv2.mtx",
+                "nnz": 48413
+            },
+            {
+                "jnz": {
+                    "size": 620172,
+                    "solve": 103.507465
+                },
+                "n": 9801,
+                "name": "fv3.mtx",
+                "nnz": 48413
+            },
+            {
+                "jnz": {
+                    "size": 214380,
+                    "solve": 195.795935
+                },
+                "n": 726,
+                "name": "msc00726.mtx",
+                "nnz": 17622
+            },
+            {
+                "jnz": {
+                    "size": 185448,
+                    "solve": 6600.558797
+                },
+                "n": 1050,
+                "name": "msc01050.mtx",
+                "nnz": 15103
+            },
+            {
+                "jnz": {
+                    "size": 292032,
+                    "solve": 1613.290404
+                },
+                "n": 1440,
+                "name": "msc01440.mtx",
+                "nnz": 23855
+            },
+            {
+                "jnz": {
+                    "size": 253500,
+                    "solve": 1173.241613
+                },
+                "n": 1824,
+                "name": "nasa1824.mtx",
+                "nnz": 20516
+            },
+            {
+                "jnz": {
+                    "size": 454972,
+                    "solve": 99.10763
+                },
+                "n": 2146,
+                "name": "nasa2146.mtx",
+                "nnz": 37198
+            },
+            {
+                "jnz": {
+                    "size": 34404,
+                    "solve": 1810.299851
+                },
+                "n": 957,
+                "name": "nos2.mtx",
+                "nnz": 2547
+            },
+            {
+                "jnz": {
+                    "size": 104676,
+                    "solve": 17.60048
+                },
+                "n": 960,
+                "name": "nos3.mtx",
+                "nnz": 8402
+            },
+            {
+                "jnz": {
+                    "size": 35724,
+                    "solve": 12.42994
+                },
+                "n": 468,
+                "name": "nos5.mtx",
+                "nnz": 2820
+            },
+            {
+                "jnz": {
+                    "size": 213596,
+                    "solve": 1034214.057631
+                },
+                "n": 1919,
+                "name": "plat1919.mtx",
+                "nnz": 17159
+            },
+            {
+                "jnz": {
+                    "size": 38348,
+                    "solve": 340.874727
+                },
+                "n": 362,
+                "name": "plat362.mtx",
+                "nnz": 3074
+            },
+            {
+                "jnz": {
+                    "size": 196696,
+                    "solve": 309.659022
+                },
+                "n": 1282,
+                "name": "plbuckle.mtx",
+                "nnz": 15963
+            },
+            {
+                "jnz": {
+                    "size": 68124,
+                    "solve": 1684.381769
+                },
+                "n": 4257,
+                "name": "t2dal_e.mtx",
+                "nnz": 4257
+            },
+            {
+                "jnz": {
+                    "size": 325772,
+                    "solve": 147.25376
+                },
+                "n": 20360,
+                "name": "t3dl_e.mtx",
+                "nnz": 20360
             }
         ],
-        "type": "large"
+        "type": "medium"
     }
 ]

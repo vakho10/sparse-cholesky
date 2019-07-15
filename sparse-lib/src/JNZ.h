@@ -2,6 +2,7 @@
 
 #include <string>
 #include <exception>
+#include <chrono>
 
 #include "mmio.h"
 
@@ -19,7 +20,7 @@ public:
 	// (სწრაფი) წაკითხვა *.mtx ფაილიდან
 	// *სიმეტრიული და დადებითად განსაზღვრული უნდა იყოს!
 	// წაიკითხავს, როგორც დიაგონალსა და მის ზედა მხარეს.
-	void fromMTXAsSymetricAndPositive(std::string fileName);
+	std::pair<long long, long long> fromMTXAsSymetricAndPositive(std::string fileName);
 
 	// წაკითხვა *.mtx ფაილიდან
 	void fromMTXFile(std::string fileName);
